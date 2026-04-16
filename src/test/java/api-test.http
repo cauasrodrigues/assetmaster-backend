@@ -1,0 +1,39 @@
+### Configurações Globais
+@baseUrl = http://localhost:8080/api/assets
+
+### 1. Criar um novo Ativo (Notebook do Cauã)
+# @name createAsset
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "MacBook Air M2",
+  "serialNumber": "SN-CAUA-2026",
+  "model": "A2941",
+  "purchasePrice": 12500.00,
+  "currentOwner": "Cauã Rodrigues",
+  "status": "DISPONIVEL"
+}
+
+### 2. Listar todos os ativos
+# Use este para pegar o ID caso precise
+GET {{baseUrl}}
+
+### 3. Buscar um ativo específico por ID
+# Substitua o ID final pelo que o banco gerou no passo 1
+GET {{baseUrl}}/COLE_O_ID_AQUI
+
+### 4. Atualizar o dono ou status (Edição)
+# Simulando que o notebook foi para manutenção
+PUT {{baseUrl}}/COLE_O_ID_AQUI
+Content-Type: application/json
+
+{
+  "name": "MacBook Air M2",
+  "serialNumber": "SN-CAUA-2026",
+  "currentOwner": "TI Suporte",
+  "status": "MANUTENCAO"
+}
+
+### 5. Deletar o ativo
+DELETE {{baseUrl}}/COLE_O_ID_AQUI
