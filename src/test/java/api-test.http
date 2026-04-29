@@ -47,3 +47,14 @@ Content-Type: application/json
   "cpuUsage": 45.5,
   "classification": "PENDENTE"
 }
+
+### 6. Enviar um Log de Processo (Telemetria)
+# Substitua o UUID pelo ID de um ativo real no seu banco
+POST {{baseUrl}}/COLE_O_ID_AQUI/logs
+Content-Type: application/json
+
+{
+  "processName": "IntelliJ IDEA",
+  "cpuUsage": 15.5,
+  "classification": "TRABALHO"
+}
