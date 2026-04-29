@@ -1,11 +1,13 @@
 package com.cauarodrigues.assetmasterbackend.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -45,4 +47,8 @@ public class Asset {
             this.status = AssetStatus.DISPONIVEL;
         }
     }
+
+    @JsonManagedReference // O "Pai" gerencia a exibição
+    @OneToMany(mappedBy = "asset", cascade = CascadeType.ALL)
+    private List<AssetLog> logs;
 }
