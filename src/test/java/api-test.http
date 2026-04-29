@@ -37,3 +37,13 @@ Content-Type: application/json
 
 ### 5. Deletar o ativo
 DELETE {{baseUrl}}/COLE_O_ID_AQUI
+
+### Criar um Log para um Ativo específico
+POST http://localhost:8080/api/assets/COLE_O_ID_DO_MACBOOK_AQUI/logs
+Content-Type: application/json
+
+{
+  "processName": "League of Legends",
+  "cpuUsage": 45.5,
+  "classification": "PENDENTE"
+}
